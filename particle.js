@@ -19,8 +19,8 @@ function Particle (x, y, r, fixed) {
         translate(pos.x, pos.y);
         rotate(angle);
         rectMode(CENTER);
-        stroke(255);
-        fill(225,0,0);
+        noStroke();
+        fill(0,130,255);
 
         ellipse(0, 0, this.r * 2);
 
