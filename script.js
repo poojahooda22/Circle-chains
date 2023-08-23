@@ -25,23 +25,26 @@ function setup() {
     // boundaries.push(new Boundary(150, 100, width * 0.3, 20, 0.3));
     // boundaries.push(new Boundary(250, 400, width * 0.6, 20, -0.3));
 
-    for (var x = 20; x < 380; x+= 40) {
+    var prev = null;
+    for (var x = 20; x < 380; x+= 20) {
         var p = new Particle(x, 100, 10);
         // var p1 = new Particle(200, 150, 10);
         particles.push(p);
 
      // particles.push(p1);
 
-        //     var options = {
-        //         bodyA: p.body,
-        //         bodyB: p1.body,
-        //         length: 50,
-        //         stiffnes: 0.4
-        //     }
+        if (prev) {
+            var options = {
+                bodyA: p.body,
+                bodyB: p1.body,
+                length: 50,
+                stiffnes: 0.4
+            }
+          var constraint = Constraint.create(options);
+          World.add(world, constraint);
+        } 
 
-        //   var constraint = Constraint.create(options);
-
-        //   World.add(world, constraint);
+          prev = p;
     }
     
    
