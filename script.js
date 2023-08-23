@@ -28,6 +28,7 @@ function setup() {
     // boundaries.push(new Boundary(150, 100, width * 0.3, 20, 0.3));
     // boundaries.push(new Boundary(250, 400, width * 0.6, 20, -0.3));
 
+    //first chain
     var prev = null;
     for (var x = 200; x < 400; x+= 20) {
         var fixed = false;
@@ -51,7 +52,7 @@ function setup() {
         } 
           prev = p;
     }
-
+    //second chain
     var prev = null;
     for (var x = 400; x < 600; x+= 20) {
         var fixed = false;
@@ -75,6 +76,7 @@ function setup() {
         } 
           prev = p1;
     }
+    //third chain
     var prev = null;
     for (var x = 600; x < 800; x+= 20) {
         var fixed = false;
@@ -134,9 +136,11 @@ function draw() {
 
     if(mConstraint.body) {
         var pos = mConstraint.body.position;
-        fill(0);
-        noStroke();
-        ellipse(pos.x, pos.y, 20, 20);
+        var offset = mConstraint.constraint.pointB;
+        var m = mConstraint.mouse.position;
+        
+        stroke(0);
+        line(pos.x + offset.x, pos.y + offset.y, m.x, m.y);
     }
 
     
