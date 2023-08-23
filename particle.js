@@ -1,8 +1,9 @@
-function Particle (x, y, r) {
+function Particle (x, y, r, fixed) {
 
     var options = {
         friction: 0,
-        restitution: 0.2
+        restitution: 0.95,
+        isStatic: fixed
 
     }
 
@@ -19,7 +20,7 @@ function Particle (x, y, r) {
         rotate(angle);
         rectMode(CENTER);
         stroke(255);
-        fill(225,15,100);
+        fill(225,0,0);
 
         ellipse(0, 0, this.r * 2);
 
