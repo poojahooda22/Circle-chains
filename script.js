@@ -30,7 +30,7 @@ function setup() {
 
     //first chain
     var prev = null;
-    for (var x = 200; x < 400; x+= 20) {
+    for (var x = 100; x < 300; x+= 20) {
         var fixed = false;
         if(!prev) {
             fixed = true;
@@ -54,7 +54,7 @@ function setup() {
     }
     //second chain
     var prev = null;
-    for (var x = 400; x < 600; x+= 20) {
+    for (var x = 300; x < 500; x+= 20) {
         var fixed = false;
         if(!prev) {
             fixed = true;
@@ -78,7 +78,7 @@ function setup() {
     }
     //third chain
     var prev = null;
-    for (var x = 600; x < 800; x+= 20) {
+    for (var x = 500; x < 700; x+= 20) {
         var fixed = false;
         if(!prev) {
             fixed = true;
@@ -99,6 +99,75 @@ function setup() {
           World.add(world, constraint);
         } 
           prev = p2;
+    }
+    var prev = null;
+    for (var x = 700; x < 900; x+= 20) {
+        var fixed = false;
+        if(!prev) {
+            fixed = true;
+        }
+        var p3 = new Particle(x, 100, 10, fixed);
+        // var p1 = new Particle(x, 100, 10, fixed);
+        // var p1 = new Particle(200, 150, 10);
+        particles.push(p3);
+        // particles.push(p1);
+        if (prev) {
+            var options = {
+                bodyA: p3.body,
+                bodyB: prev.body,
+                length: 30,
+                stiffness: 0.4
+            }
+          var constraint = Constraint.create(options);
+          World.add(world, constraint);
+        } 
+          prev = p3;
+    }
+    var prev = null;
+    for (var x = 900; x < 1100; x+= 20) {
+        var fixed = false;
+        if(!prev) {
+            fixed = true;
+        }
+        var p4 = new Particle(x, 100, 10, fixed);
+        // var p1 = new Particle(x, 100, 10, fixed);
+        // var p1 = new Particle(200, 150, 10);
+        particles.push(p4);
+        // particles.push(p1);
+        if (prev) {
+            var options = {
+                bodyA: p4.body,
+                bodyB: prev.body,
+                length: 30,
+                stiffness: 0.4
+            }
+          var constraint = Constraint.create(options);
+          World.add(world, constraint);
+        } 
+          prev = p4;
+    }
+    var prev = null;
+    for (var x = 1100; x < 1300; x+= 20) {
+        var fixed = false;
+        if(!prev) {
+            fixed = true;
+        }
+        var p5 = new Particle(x, 100, 10, fixed);
+        // var p1 = new Particle(x, 100, 10, fixed);
+        // var p1 = new Particle(200, 150, 10);
+        particles.push(p5);
+        // particles.push(p1);
+        if (prev) {
+            var options = {
+                bodyA: p5.body,
+                bodyB: prev.body,
+                length: 30,
+                stiffness: 0.4
+            }
+          var constraint = Constraint.create(options);
+          World.add(world, constraint);
+        } 
+          prev = p5;
     }
     // boundaries.push(new Boundary(200, height, width, 30, 0));
   
